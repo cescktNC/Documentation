@@ -13,7 +13,8 @@ Se usa el método **createElement** de *React*. Se le pasan 3 parámetros:
 1. El elemento que se va a crear (puede ser una etiqueta de *HTML* o un *Componente* de React).
 2. Atributos para el elemento que se va a crear, si no se pasa ninguno, se pone a null.
 3. El texto que va dentro de la etiqueta de *HTML*.
-Después hay que añadirlo en la página web [Insertar elemento](#insertar-un-elemento-en-la-página-web)
+
+Después hay que [insertarlo](#insertar-un-elemento-en-la-página-web) en la página web.
 
 Ejemplo:
 
