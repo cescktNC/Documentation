@@ -1,3 +1,4 @@
+![React Logo](/images/react_logo.png)
 # :blue_book: REACT Documentation
 
 ## Instalar React i ReactDOM:
