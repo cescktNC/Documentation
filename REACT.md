@@ -1,6 +1,14 @@
 ![React Logo](/images/react_logo.png)
 # :blue_book: REACT Documentation
 
+REACT es un framework que se asegura de usar los recursos de la mejor manera. Esto es así porque
+está constantemente comparando el DOM virtual con con el DOM verdadero y solo ejecuta los cambios
+a los elementos específicos que han cambiado.
+Por ejemplo, si tenemos un div con todo un listado de fotografias, en el momento que una de ellas
+se actualiza por otra, el DOM normal cambiaria todo el div volviendo a mostrar todoas las fotografias,
+donde ahora apareceria la nueva fotografia, en cambio, REACT solo cambiaria la fotografia que se
+ha actualizado, y de esta manera se consumen menos recursos.
+
 ## Instalar React i ReactDOM:
 Insertar dos **CDN's** en la página principal *HTML* del proyecto:
 
@@ -29,7 +37,21 @@ Se usa el método **render** de **ReactDOM**. Se le pasan 2 parámetros:
 Ejemplo:
 
 ```ReactDOM.render(h1, document.getElementById('root'));```
+## JSX:
+Para utilizar JSX hay que instalar **BABEL**. Para eso hay que insertar el **CDN** en la página principal del proyecto:
 
+```<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>```
 
+En un proyecto real, no es una buena idea incluir **BABEL** en el proyecto porque es una libreria que ocupa mucho. Es mejor escribir en *JSX*, después utilizar *BABEL* para transformar *JSX* en *JavsScript* y de esta forma sólo se utiliza *JavaScript* en el proyecto y ocupará menos.
+
+**JSX** sirve para poder escribir directamente *HTML* en el código de *JavaScript*, por tanto, la libreria **BABEL** lo que hace es compilar el codigo y transformarlo a *JavScript*. Para que compile el código, hay que ponerlo dentro de la siguiente etiqueta:
+
+```
+<script type="text/babel">
+    const h1 = <h1 className='clase-de-css'>Hola Mundo</h1>;
+    ReactDOM.render(h1, document.getElementById('root'));
+<script>
+```
+De esta manera, ya no haria falta crear un elemento de HTML con el método *createEelement*.
 
 added by Francesc
