@@ -44,11 +44,15 @@ Se usa el método **render** de **ReactDOM**. Se le pasan 2 parámetros:
 
 Ejemplo:
 
-```ReactDOM.render(h1, document.getElementById('root'));```
+```javascript
+ReactDOM.render(h1, document.getElementById('root'));
+```
 ## JSX:
 Para utilizar JSX hay que instalar **BABEL**. Para eso hay que insertar el **CDN** en la página principal del proyecto:
 
-```<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>```
+```javascript
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+```
 
 En un proyecto real, no es una buena idea incluir **BABEL** en el proyecto porque es una libreria que ocupa mucho. Es mejor escribir en *JSX*, después utilizar *BABEL* para transformar *JSX* en *JavsScript* y de esta forma sólo se utiliza *JavaScript* en el proyecto y ocupará menos.
 
