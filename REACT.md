@@ -114,5 +114,32 @@ const app = (
 );
 ReactDOM.render(app, document.getElementById('root'));
 ```
+### Componentes (Eventos)
+Un evento se puede crear tanto en un componente de tipo función como de tipo clase. Dos ejemplos con el evento *onClick*:
+1. Evento en componente de tipo función:
+```javascript
+function Alertador(props) {
+    return (
+        <div>
+            <button onClick={() => alert('Alerta!')}>Click!</button>
+        </div>
+    );
+}
+ReactDOM.render(<Alertador />, document.getElementById('root'));
+```
+1. Evento en componente de tipo classe:
+```javascript
+class Alertador extends React.Component {
+    render() {
+        return (
+            <div>
+                <button onClick={this.onClick}>Click!</button>
+            </div>
+        );
+    }
+}
+ReactDOM.render(<Alertador />, document.getElementById('root'));
+```
+### Componentes (Estado)
 
 added by Francesc
