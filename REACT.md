@@ -70,6 +70,7 @@ React te permite crear tus propias etiquetas de HTML llamados **componentes**, d
 Los componentes se pueden crear de dos formas:
 1. Creando una fucnión:
 Los nombres de las funciones empiezan en **mayúscula**.
+
 Ejemplo 1:
 ```javascript
 function Bienvenido() {
