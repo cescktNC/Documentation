@@ -69,6 +69,7 @@ De esta manera, ya no haria falta crear un elemento de HTML con el método *crea
 React te permite crear tus propias etiquetas de HTML llamados **componentes**, dándoles tus propios estilos. Por ejemplo, puedes crear un botón con unos estilos en concreto, y despues, este componente lo puedes utilizar en muchas partes de un proyecto.
 Los componentes se pueden crear de dos formas:
 1. Creando una fucnión:
+
 Los nombres de las funciones empiezan en **mayúscula**.
 
 Ejemplo 1:
@@ -87,6 +88,7 @@ const componente = <Bienvenido />;
 ReactDOM.render(componente, document.getElementById('root'));
 ```
 2. Creando una clase (Hoy en dia ya no se usa):
+
 La clase que definimos siempre hereda de la clase componente *React.Component*.
 ```javascript
 class Bienvenido extends React.Component {
