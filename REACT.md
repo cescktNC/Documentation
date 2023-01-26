@@ -127,7 +127,7 @@ function Alertador(props) {
 }
 ReactDOM.render(<Alertador />, document.getElementById('root'));
 ```
-1. Evento en componente de tipo classe:
+2. Evento en componente de tipo classe:
 ```javascript
 class Alertador extends React.Component {
     render() {
