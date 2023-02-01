@@ -127,7 +127,7 @@ function Alertador(props) {
 }
 ReactDOM.render(<Alertador />, document.getElementById('root'));
 ```
-2. Evento en componente de tipo classe:
+2. Evento en componente de tipo clase:
 ```javascript
 class Alertador extends React.Component {
     render() {
@@ -141,5 +141,41 @@ class Alertador extends React.Component {
 ReactDOM.render(<Alertador />, document.getElementById('root'));
 ```
 ### Componentes (Estado)
+Al igual que las etiquetas *HTML*, los componentes también tienen un estado. Por ejemplo, un checkbox en *HTML* cuando cambia a *checked*, significa que su estado interno cambia. Otro ejemplo seria un *input*, en el momento que se introduce texto, su estado cambia porque se está añadiendo texto en el value.
+En el estado de un componente se puede guardar lo que se quiera y se puede guardar mucha información, o simplemente un *true* o *false* para cambiar la forma visual del componente.
+Un estado se puede crear tanto en un componente de tipo función como de tipo clase. Para crear un estado se usa el *hook (gancho)* **useState(valor_inicial)**. El valor que se le pasa por parámetro és el estado inicial. Este hook devuelve una lista con dos valores, el primero es el valor del estado y el segundo es una función que nos va a permitir cambiar el estado. 
+1. Estado en componente de tipo función:
+```javascript
+function Contador(props) {
+    const [contar, setContar] = React.useState(0); 
+
+    return (
+        <div>
+            <h1>{contar}</h1>
+            <button onClick={() => setContar(contar + 1)}>Click!</button>
+        </div>
+    );
+}
+ReactDOM.render(<Contador />, document.getElementById('root'));
+```
+2. Estado en componente de tipo clase:
+```javascript
+class Contador extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { contar: 0 };
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>{this.state.contar}</h1>
+                <button onClick={() => this.setState((state, props) => ({ contar: state.contar + 1 }))}>Click!</button>
+            </div>
+        );
+    }
+}
+ReactDOM.render(<Contador />, document.getElementById('root'));
+```
 
 added by Francesc
