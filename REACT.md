@@ -209,5 +209,22 @@ function App(props) {
 }
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
+### Componentes (Listas)
+Una lista debe tener una propiedad **key** y debe ser única porque si algún elemento de esta lista que se muestra por pantalla ha cambiado, *REACT* sabrá cuál es y podrá renderizarlo. A continuación muestro un ejemplo de un componente con una *lista* dentro:
+```javascript
+function Series(props) {
+    const lista = ['Silicon Valley', 'Mr. Robot', 'Black Mirror'];
+    return <ul>{lista.map(serie => <li key={serie}>{serie}</li>)}</ul>;
+}
+ReactDOM.render(<Series />, document.getElementById('root'));
+```
+El siguiente ejemplo se muestra como la *lista*, en vez de estar definida dentro del componente, se pasa como una propiedad:
+```javascript
+function Series(props) {
+    return <ul>{props.lista.map(serie => <li key={serie}>{serie}</li>)}</ul>;
+}
+const lista = ['Silicon Valley', 'Mr. Robot', 'Black Mirror'];
+ReactDOM.render(<Series lista={lista} />, document.getElementById('root'));
+```
 
 added by Francesc
