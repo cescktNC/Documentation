@@ -177,5 +177,37 @@ class Contador extends React.Component {
 }
 ReactDOM.render(<Contador />, document.getElementById('root'));
 ```
+### Componentes (Condicionales **IF**)
+Los condicionales en *REACT* se comportan exactamente de la misma manera que en *JS*. Un ejemplo de su funcionamiento podria ser algo como *si este usuario no está autorizado muestra este componente, pero si sí que está autorizado, muestra este otro componente.* Por tanto se puede usar este tipo de lógica para mostrar partes de una aplicación sólo a usuarios autorizados e información pública a usuarios no autorizados. Vamos a ver un ejemplo de un componente llamado *Condicional* dónde se usa el condicional **if**:
+```javascript
+function Condicionales(props) {
+    if (props.autorizado) {
+        return <h1>Bienvenido</h1>;
+    }
+    return <h1>No autorizado</h1>;
+}
+ReactDOM.render(<Condicionales autorizado={true}/>, document.getElementById('root'));
+```
+En este caso, si la propiedad *autorizado* es **true**, retornará un *JSX de h1* con el contenido de *Bienvenido*, en caso contrario lo retornará con el mensaje de *No autorizado*.
+A continuación voy a añadir un componente llamado *App* que contendrá un *estado o gancho (hook)* llamado *autorizado* con la función *setAutorizado* que se ejecutará en el botón, cambiando el estado a *true* ya que inicialmente es *false*. Y ese valor se le pasará al componente *Condicionales* para que muestre el mensaje de *Autorizado*:
+```javascript
+function Condicionales(props) {
+    if (props.autorizado) {
+        return <h1>Bienvenido</h1>;
+    }
+    return <h1>No autorizado</h1>;
+}
+function App(props) {
+    const [autorizado, setAutorizado] = React.useState(false);
+
+    return (
+        <div>
+            <button onClick={() => setAutorizado(true)}>Authorizar</button> // Se cambia el valor de autorizado a true
+            <Condicionales autorizado={autorizado} /> // La porpiedad 'autorizado' adquiere el valor del estado 'autorizado'
+        </div>
+    );
+}
+ReactDOM.render(<App />, document.getElementById('root'));
+```
 
 added by Francesc
