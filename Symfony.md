@@ -71,6 +71,12 @@ class LuckyController
 4. **public function number(int $max): Response** :arrow_right: El método puede tener un argumento **$max** gracias al comodín *{max}* en la ruta.
 5. **return new Response** :arrow_right: El controlador crea y devuelve un objeto *Response*.
 
+### Generar un controlador
+El siguiente comando, crea el controlador y su vista correspondiente:
+```bash
+php bin/console make:controller NombreController
+```
+
 ## Gestion de paquetes
 Para gestionar la instalación y desinstalación de paquetes en un proyecto, hay que usar el comando composer. El **--dev** es opcional y sirve para indicar que solamente se instale en el entorno de desarrollo.
 ```
