@@ -30,12 +30,6 @@ A diferencia de otros frameworks, *symfony* tiene un **servidor web local**, rec
 symfony server:start
 ```
 
-## Gestion de paquetes
-Para gestionar la instalación y desinstalación de paquetes en un proyecto, hay que usar el comando composer. El **--dev** es opcional y sirve para indicar que solamente se instale en el entorno de desarrollo.
-```
-composer require nombre_del_paquete --dev
-```
-
 ## Controladores
 Los controladores són parte de la arquitectura **MVC**. Són responsables de:
 1. Manejar solicitudes o *Request en inglés* del cliente:
@@ -76,6 +70,12 @@ class LuckyController
 3. **class LuckyController** :arrow_right: la clase puede tener cualquier nombre, pero por convención se le agrega el sufijo **Controller**.
 4. **public function number(int $max): Response** :arrow_right: El método puede tener un argumento **$max** gracias al comodín *{max}* en la ruta.
 5. **return new Response** :arrow_right: El controlador crea y devuelve un objeto *Response*.
+
+## Gestion de paquetes
+Para gestionar la instalación y desinstalación de paquetes en un proyecto, hay que usar el comando composer. El **--dev** es opcional y sirve para indicar que solamente se instale en el entorno de desarrollo.
+```
+composer require nombre_del_paquete --dev
+```
 
 ### Paquete para generar código **maker-bundle** (Ya instalado por defecto, en entorno de desarrollo, al crear el proyecto).
 ```
