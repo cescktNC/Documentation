@@ -70,19 +70,19 @@ TRUNCATE TABLE clientes;
 ### Añadir una fila en una tabla
 ```sql
 INSERT INTO clientes (id, nombre, dni, telefono, email) VALUES (1, "Francesc Gavaldà Reig", "388745124-K", 654123574, "fgavalda@gmail.com");
-INSERT INTO clientes VALUES (2, "Alba González Garcia", "38914452-Q", 632123478, "agonzalez@gmail.com");
+INSERT INTO clientes VALUES (2, "Alba Cardona Bonastre", "38914452-Q", 632123478, "agonzalez@gmail.com");
 ```
 ### Añadir múltiples filas en una tabla
 ```sql
 INSERT INTO clientes (id, nombre, dni, telefono, email)
 VALUES
 (1, "Francesc Gavaldà Reig", "32214578-L", 621789621, "fgavalda@gmail.com"),
-(2, "Alba González Garcia", "38914452-Q", 632123478, "agonzalez@gmail.com"),
-(3, "Judit López Martínez", "39945278-M", 633788415, "jlopez@gmail.com");
+(2, "Alba Cardona Bonastre", "38914452-Q", 632123478, "agonzalez@gmail.com"),
+(3, "Judit Fortuny Roig", "39945278-M", 633788415, "jlopez@gmail.com");
 ```
 ### Valor NULL (significa que este campo no tiene ningún valor, sirve para campos opcionales)
 ```sql
-INSERT INTO clientes (id, nombre, dni, telefono, email) VALUES (3, "Judit López Martínez", "39945278-M", null, "jlopez@gmail.com");
+INSERT INTO clientes (id, nombre, dni, telefono, email) VALUES (3, "Judit Fortuny Roig", "39945278-M", null, "jlopez@gmail.com");
 ```
 
 
