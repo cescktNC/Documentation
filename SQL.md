@@ -79,3 +79,27 @@ INSERT INTO clientes(id, nombre, dni, telefono, email) VALUES(1, "Francesc Navar
 SELECT * FROM clientes;
 SELECT nombre, telefono FROM clientes;
 ```
+### Mostrar datos distintos de 1 tabla (evitamos mostrar datos duplicados o repetidos)
+```sql
+SELECT DISTINCT ciudad FROM clientes;
+SELECT COUNT(DISTINCT ciudad) FROM clientes;
+SELECT Count(*) AS ciudadesDiferentes FROM (SELECT DISTINCT ciudad FROM clientes);
+```
+### Cláusula WHERE
+#### Operadores
+Operador|Descripción
+|--------|-----------|
+|=|Igual|
+|>|Más grande que|
+|<|Más pequeño que|
+|>=|Más grande o igual que|
+|<=|Más pequeño o igual que|
+|<> o !=|Diferente|
+|BETWEEN|Entre un rango determinado|
+|LIKE|Busca sobre un patrón|
+|IN|Para especificar múltiples posibles valores para una columna|
+```sql
+SELECT * FROM clientes WHERE ciudad='Mexico';
+SELECT * FROM clientes WHERE clienteID=1;
+SELECT * FROM clientes WHERE clienteID > 80;
+```
