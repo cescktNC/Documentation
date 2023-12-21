@@ -67,22 +67,33 @@ TRUNCATE TABLE clientes;
 
 
 ## Modificación de datos
-### Añadir una fila en una tabla
+### INSERT INTO (añadir una fila en una tabla)
 ```sql
-INSERT INTO clientes (id, nombre, dni, telefono, email) VALUES (1, "Francesc Gavaldà Reig", "388745124-K", 654123574, "fgavalda@gmail.com");
-INSERT INTO clientes VALUES (2, "Alba Cardona Bonastre", "38914452-Q", 632123478, "agonzalez@gmail.com");
+INSERT INTO clientes (id, nombre, dni, telefono, pais, ciudad) VALUES (1, "Francesc Gavaldà Reig", "388745124-K", 654123574, "España", "Tarragona");
+INSERT INTO clientes VALUES (2, "Alba Cardona Bonastre", "38914452-Q", 632123478, "Dinamarca", "Copenhague");
 ```
 ### Añadir múltiples filas en una tabla
 ```sql
-INSERT INTO clientes (id, nombre, dni, telefono, email)
+INSERT INTO clientes (id, nombre, dni, telefono, pais, ciudad)
 VALUES
-(1, "Francesc Gavaldà Reig", "32214578-L", 621789621, "fgavalda@gmail.com"),
-(2, "Alba Cardona Bonastre", "38914452-Q", 632123478, "agonzalez@gmail.com"),
-(3, "Judit Fortuny Roig", "39945278-M", 633788415, "jlopez@gmail.com");
+(1, "Francesc Gavaldà Reig", "32214578-L", 621789621, "España", "Tarragona"),
+(2, "Alba Cardona Bonastre", "38914452-Q", 632123478, "Dinamarca", "Copenhague"),
+(3, "Judit Fortuny Roig", "39945278-M", 633788415, "Reino Unido", "Londres");
 ```
 ### Valor NULL (significa que este campo no tiene ningún valor, sirve para campos opcionales)
 ```sql
-INSERT INTO clientes (id, nombre, dni, telefono, email) VALUES (3, "Judit Fortuny Roig", "39945278-M", null, "jlopez@gmail.com");
+INSERT INTO clientes (id, nombre, dni, telefono, pais, ciudad) VALUES (3, "Judit Fortuny Roig", "39945278-M", null, "Reino Unido", "Londres");
+```
+### UPDATE (modificar registro en una tabla)
+```sql
+UPDATE clientes SET nombre = 'Francesc Puig Crespo', ciudad = 'Londres' WHERE id = 1;
+UPDATE clientes SET nombre = 'Albert' WHERE pais = 'España';
+UPDATE clientes SET nombre = 'Alex'; -- Sin el WHERE, cambia todos los nombres de la tabla 'clientes'
+```
+### DELETE (borrar registro en una tabla)
+```sql
+DELETE FROM clientes WHERE nombre = 'Francesc Puig Crespo';
+DELETE FROM clientes; -- Borra todas las filas de la tabla 'clientes', pero la tabla sigue existiendo.
 ```
 
 
@@ -124,7 +135,10 @@ SELECT * FROM productos ORDER BY nombre;
 SELECT * FROM clientes ORDER BY pais, nombre;
 SELECT * FROM clientes ORDER BY pais ASC, nombre DESC;
 ```
-### Operador AND (se tienen que cumplir todas las condiciones), OR (almenos una se tiene que cumplir) y NOT (resultado opuesto)
+### Operador AND, OR y NOT
+1. AND - se tienen que cumplir todas las condiciones.
+2. OR - almenos una se tiene que cumplir.
+3. NOT - resultado opuesto.
 ```sql
 SELECT * FROM clientes WHERE pais = 'España' AND nombre LIKE 'G%';
 SELECT * FROM clientes WHERE pais = 'Alemania' OR pais = 'España';
@@ -137,8 +151,38 @@ SELECT * FROM clientes WHERE clienteID NOT BETWEEN 10 AND 60;
 SELECT * FROM clientes WHERE ciudad NOT IN ('Paris', 'Londres');
 SELECT * FROM clientes WHERE NOT clienteID > 50;
 ```
-### Operador IS NULL (para saber valores vacíos) y IS NOT NULL (para saber valores que no són vacíos)
+### Operador IS NULL y IS NOT NULL
+1. IS NULL - para saber valores vacíos.
+2. IS NOT NULL - para saber valores que no són vacíos.
 ```sql
 SELECT nombre, telefono, direccion FROM clientes WHERE direccion IS NULL;
 SELECT nombre, telefono, direccion FROM clientes WHERE direccion IS NOT NULL;
+```
+### Cláusula TOP, LIMIT, FETCH FIRST o ROWNUM
+1. TOP - devuelve un número específico de registros.
+2. LIMIT - lo mismo pero para MySQL.
+3. FETCH FIRST o ROWNUM - lo mismo pero para Oracle.
+```sql
+SELECT TOP 3 * FROM clientes;
+SELECT TOP 3 * FROM clientes ORDER BY nombre DESC;
+SELECT TOP 3 * FROM clientes WHERE pais = 'Alemania';
+SELECT TOP 50 PERCENT * FROM clientes; -- Devuelve el 50% de los registros de la tabla 'clientes'
+
+SELECT * FROM clientes LIMIT 3;
+SELECT * FROM clientes ORDER BY nombre DESC LIMIT 3;
+SELECT * FROM clientes WHERE pais = 'Alemania' LIMIT 3;
+
+SELECT * FROM clientes FETCH FIRST 3 ROWS ONLY; -- Oracle
+SELECT * FROM clientes ORDER BY nombre DESC FETCH FIRST 3 ROWS ONLY;
+SELECT * FROM clientes WHERE pais = 'Alemania' FETCH FIRST 3 ROWS ONLY;
+SELECT * FROM clientes FETCH FIRST 50 PERCENT ROWS ONLY;
+```
+### Funciones MIN(), MAX()
+1. MIN() - devuelve el valor más pequeño de la columna especificada.
+2. MAX() - devuelve el valor más grande de la columna especificada.
+```sql
+SELECT MIN(precio) FROM productos;
+SELECT MAX(precio) FROM productos;
+SELECT MIN(precio) FROM productos WHERE tipoProducto = 'Gel';
+SELECT MIN(precio) AS PrecioMasBajo FROM productos;
 ```
