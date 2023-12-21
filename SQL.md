@@ -177,12 +177,38 @@ SELECT * FROM clientes ORDER BY nombre DESC FETCH FIRST 3 ROWS ONLY;
 SELECT * FROM clientes WHERE pais = 'Alemania' FETCH FIRST 3 ROWS ONLY;
 SELECT * FROM clientes FETCH FIRST 50 PERCENT ROWS ONLY;
 ```
-### Funciones MIN(), MAX()
+### Funciones MIN(), MAX(), COUNT(), SUM() y AVG()
 1. MIN() - devuelve el valor más pequeño de la columna especificada.
 2. MAX() - devuelve el valor más grande de la columna especificada.
+3. COUNT() - devuelve el número de filas que cumplen un criterio especificado.
+4. SUM() - devuelve la suma total de una columna numérica.
+5. AVG() - devuelve el valor promedio de una columna numérica
 ```sql
 SELECT MIN(precio) FROM productos;
 SELECT MAX(precio) FROM productos;
 SELECT MIN(precio) FROM productos WHERE tipoProducto = 'Gel';
-SELECT MIN(precio) AS PrecioMasBajo FROM productos;
+SELECT MIN(precio) AS PrecioMasBajo FROM productos; -- Usa el alias 'PrecioMasBajo'
+
+SELECT COUNT(*) FROM productos;
+SELECT COUNT(productoID) FROM productos WHERE precio > 20;
+SELECT COUNT(nombre) FROM productos; -- Devuelve el número de productos que el campo 'nombre' no es NULL
+SELECT COUNT(DISTINCT precio) FROM productos; -- Ignora duplicados
+SELECT COUNT(*) AS [Número de registros] FROM productos;
+
+SELECT SUM(cantidad) FROM productos;
+SELECT SUM(cantidad) FROM productos WHERE productoID = 11;
+SELECT SUM(cantidad * 10) FROM productos; -- Multiplica cada cantidad por 10 y luego lo suma todo
+
+SELECT AVG(precio) FROM productos;
+SELECT AVG(precio) FROM productos WHERE tipoProducto = 'Gel';
+SELECT * FROM productos WHERE precio > (SELECT AVG(precio) FROM productos); -- Devuelve los productos con un precio superior al promedio
 ```
+
+
+
+
+
+
+SELECT SUM(Price * Quantity)
+FROM OrderDetails
+LEFT JOIN Products ON OrderDetails.ProductID = Products.ProductID;
